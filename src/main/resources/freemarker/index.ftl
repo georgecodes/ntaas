@@ -89,7 +89,9 @@
                 <span class="text-muted">&copy; 2015 George McIntosh</span>
                 <span class="text-muted"><a href="http://blog.ntaas.com">blog</a></span>
                 <span class="text-muted"><a
-                        href="https://twitter.com/intent/user?screen_name=namingthingsapp">follow</a></span>
+                        href="https://twitter.com/intent/user?screen_name=namingthingsapp">@namingthingsapp</a></span>
+                <span class="text-muted"><a
+                        href="https://github.com/georgecodes/ntaas">GitHub</a></span>
             </div>
         </footer>
 
