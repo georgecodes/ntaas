@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import static org.junit.Assert.assertEquals;
 
-public class AlliterationTests extends JerseyTest {
+public class AlliterationTests extends AbstractNtaasApplicationTests {
 
     @Test
     public void plainTextAlliteration() {
@@ -45,8 +45,4 @@ public class AlliterationTests extends JerseyTest {
         RandomNumber.seed(73654L);
     }
 
-    @Override
-    protected Application configure() {
-        return new NtaasConfig();
-    }
 }

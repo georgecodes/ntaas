@@ -55,6 +55,7 @@ dependencies {
     compile "org.glassfish.jersey.ext:jersey-mvc-freemarker:2.7"
     testCompile "junit:junit:4.11"
     testCompile "org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2:2.7"
+    testCompile "org.jsoup:jsoup:1.7.3"
 }
 
 jar {

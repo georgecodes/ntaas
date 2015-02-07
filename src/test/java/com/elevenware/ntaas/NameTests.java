@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import static org.junit.Assert.assertEquals;
 
-public class NameTests extends JerseyTest {
+public class NameTests extends AbstractNtaasApplicationTests {
 
     @Test
     public void plainTextNameResource() {
@@ -64,11 +64,6 @@ public class NameTests extends JerseyTest {
     @Before
     public void setup() {
         RandomNumber.seed(23847L);
-    }
-
-    @Override
-    protected Application configure() {
-        return new NtaasConfig();
     }
 
 }
