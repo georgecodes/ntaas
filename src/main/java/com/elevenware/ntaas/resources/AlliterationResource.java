@@ -53,4 +53,39 @@ public class AlliterationResource {
         return new Viewable("/name.ftl", model);
     }
 
+    @GET
+    @Path("/{letter}/number")
+    @Produces(MediaType.APPLICATION_XML)
+    public Name nameAsXmlWithNumber(@PathParam("letter") String letter) {
+        Name name = new Name();
+        name.setName(nameService.alliterateOn(letter, true));
+        return name;
+    }
+
+    @GET
+    @Path("/{letter}/number")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Name nameAsJsonWithNumber(@PathParam("letter") String letter) {
+        Name name = new Name();
+        name.setName(nameService.alliterateOn(letter, true));
+        return name;
+    }
+
+    @GET
+    @Path("/{letter}/number")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String nameAsTextWithNumber(@PathParam("letter") String letter) {
+        return nameService.alliterateOn(letter, true);
+    }
+
+    @GET
+    @Path("/{letter}/number")
+    @Produces(MediaType.TEXT_HTML)
+    public Viewable nameAsHtmlWithNumber(@PathParam("letter") String letter) {
+        String name = nameService.alliterateOn(letter, true);
+        Map model = new HashMap<>();
+        model.put("name", name);
+        return new Viewable("/name.ftl", model);
+    }
+
 }
