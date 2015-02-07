@@ -14,7 +14,7 @@ public class NtaasConfig extends ResourceConfig {
         register(AlliterationResource.class);
         register(FrontPage.class);
         register(StatusResource.class);
-
+        property(FreemarkerMvcFeature.TEMPLATES_BASE_PATH, "/freemarker");
         register(FreemarkerMvcFeature.class);
     }
 }

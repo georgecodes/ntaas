@@ -22,9 +22,6 @@ public class NtaasApplication {
                 org.glassfish.jersey.servlet.ServletContainer.class, "/*");
         jerseyServlet.setInitOrder(0);
 
-        jerseyServlet.setInitParameter("jersey.config.server.mvc.templateBasePath.freemarker",
-                "freemarker");
-
         jerseyServlet.setInitParameter("javax.ws.rs.Application",
                 NtaasConfig.class.getCanonicalName());
 
