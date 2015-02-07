@@ -14,10 +14,10 @@ apply plugin: 'com.github.johnrengelman.shadow'
 defaultTasks "clean", "build", "shadowJar"
 
 group='com.elevenware'
-archivesBaseName='ntaas2'
+archivesBaseName='ntaas'
 version='0.1-SNAPSHOT'
 
-mainClassName="com.elevenware.ntaas2.NtaasApplication"
+mainClassName="com.elevenware.ntaas.NtaasApplication"
 
 task javadocJar(type: Jar) {
     classifier = 'javadoc'

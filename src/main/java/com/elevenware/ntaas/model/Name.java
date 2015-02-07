@@ -1,8 +1,6 @@
-package com.elevenware.ntaas2.model;
+package com.elevenware.ntaas.model;
 
-import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement

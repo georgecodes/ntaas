@@ -1,4 +1,4 @@
-package com.elevenware.ntaas2.resources;
+package com.elevenware.ntaas.resources;
 
 import org.glassfish.jersey.server.mvc.Viewable;
 

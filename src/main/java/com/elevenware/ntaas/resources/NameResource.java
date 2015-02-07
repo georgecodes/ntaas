@@ -1,6 +1,6 @@
-package com.elevenware.ntaas2.resources;
+package com.elevenware.ntaas.resources;
 
-import com.elevenware.ntaas2.model.Name;
+import com.elevenware.ntaas.model.Name;
 import com.elevenware.nyaaas.NameService;
 import com.elevenware.nyaaas.SimpleNameService;
 import org.glassfish.jersey.server.mvc.Viewable;

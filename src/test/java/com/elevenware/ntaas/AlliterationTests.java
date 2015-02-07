@@ -1,7 +1,6 @@
 package com.elevenware.ntaas;
 
-import com.elevenware.ntaas2.NtaasConfig;
-import com.elevenware.ntaas2.model.Name;
+import com.elevenware.ntaas.model.Name;
 import com.elevenware.nyaaas.RandomNumber;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package com.elevenware.ntaas2;
+package com.elevenware.ntaas;
 
 import javax.ws.rs.ext.*;
 import org.eclipse.persistence.jaxb.JAXBContextProperties;
