@@ -47,7 +47,7 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Use the JSON API to get a random name generated:</h3>
+                <h3 class="panel-title">Use the JSON API to get a random name generated <span class="label label-info"><a href="/name">try it!</a></span></h3>
             </div>
             <div class="panel-body">
                 <div class="panel">
@@ -60,7 +60,7 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Get a numbered name</h3>
+                <h3 class="panel-title">Get a numbered name <span class="label label-info"><a href="/name/number">try it!</a></span></h3>
             </div>
             <div class="panel-body">
                 <div class="panel">
@@ -73,7 +73,7 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Nifty alliteration</h3>
+                <h3 class="panel-title">Nifty alliteration <span class="label label-info"><a href="/alliteration/s/number">try it!</a></span></h3>
             </div>
             <div class="panel-body">
                 <div class="panel">
