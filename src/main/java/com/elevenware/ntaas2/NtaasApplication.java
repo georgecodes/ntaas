@@ -22,7 +22,7 @@ public class NtaasApplication {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
 
-        Server jettyServer = new Server(8080);
+        Server jettyServer = new Server(Integer.getInteger("ntaas.server.port", 8080));
         jettyServer.setHandler(context);
 
         ServletHolder jerseyServlet = context.addServlet(
