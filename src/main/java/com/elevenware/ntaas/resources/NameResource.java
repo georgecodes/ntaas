@@ -45,8 +45,8 @@ public class NameResource {
     @GET
     @Path("/")
     @Produces(MediaType.TEXT_HTML)
-    public Viewable nameNumberAsHtml() {
-         String name = nameService.getAdjectiveNounPair(true);
+    public Viewable nameAsHtml() {
+         String name = nameService.getAdjectiveNounPair();
          Map model = new HashMap<>();
          model.put("name", name);
          return new Viewable("/name.ftl", model);
@@ -80,7 +80,7 @@ public class NameResource {
     @GET
     @Path("/number")
     @Produces(MediaType.TEXT_HTML)
-    public Viewable nameAsHtml() {
+    public Viewable nameNumberAsHtml() {
         String name = nameService.getAdjectiveNounPair(true);
         Map model = new HashMap<>();
         model.put("name", name);
