@@ -3,89 +3,79 @@ package com.elevenware.ntaas.resources;
 import com.elevenware.ntaas.model.Name;
 import com.elevenware.nyaaas.NameService;
 import com.elevenware.nyaaas.SimpleNameService;
-import org.glassfish.jersey.server.mvc.Viewable;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
 import java.util.Map;
 
-@Path("/alliteration")
+@RequestMapping(value = "/alliteration")
+@Controller
 public class AlliterationResource {
 
     private NameService nameService = new SimpleNameService();
 
-    @GET
-    @Path("/{letter}")
-    @Produces(MediaType.APPLICATION_XML)
-    public Name nameAsXml(@PathParam("letter") String letter) {
+    @RequestMapping(value = "/{letter}", produces = "application/xml", method = RequestMethod.GET)
+    @ResponseBody
+    public Name nameAsXml(@PathVariable("letter") String letter) {
         Name name = new Name();
         name.setName(nameService.alliterateOn(letter));
         return name;
     }
 
-    @GET
-    @Path("/{letter}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Name nameAsJson(@PathParam("letter") String letter) {
+    @RequestMapping(value = "/{letter}", produces = "application/json", method = RequestMethod.GET)
+    @ResponseBody
+    public Name nameAsJson(@PathVariable("letter") String letter) {
         Name name = new Name();
         name.setName(nameService.alliterateOn(letter));
         return name;
     }
 
-    @GET
-    @Path("/{letter}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String nameAsText(@PathParam("letter") String letter) {
+    @RequestMapping(value = "/{letter}", produces = "text/plain", method = RequestMethod.GET)
+    @ResponseBody
+    public String nameAsText(@PathVariable("letter") String letter) {
         return nameService.alliterateOn(letter);
     }
 
-    @GET
-    @Path("/{letter}")
-    @Produces(MediaType.TEXT_HTML)
-    public Viewable nameAsHtml(@PathParam("letter") String letter) {
+    @RequestMapping(value = "/{letter}", produces = "text/html", method = RequestMethod.GET)
+    public String nameAsHtml(@PathVariable("letter") String letter, Model model) {
         String name = nameService.alliterateOn(letter);
-        Map model = new HashMap<>();
-        model.put("name", name);
-        return new Viewable("/name.ftl", model);
+        model.addAttribute("name", name);
+        return "name";
     }
 
-    @GET
-    @Path("/{letter}/number")
-    @Produces(MediaType.APPLICATION_XML)
-    public Name nameAsXmlWithNumber(@PathParam("letter") String letter) {
+    @RequestMapping(value = "/{letter}/number", produces = "application/xml", method = RequestMethod.GET)
+    @ResponseBody
+    public Name nameAsXmlWithNumber(@PathVariable("letter") String letter) {
         Name name = new Name();
         name.setName(nameService.alliterateOn(letter, true));
         return name;
     }
 
-    @GET
-    @Path("/{letter}/number")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Name nameAsJsonWithNumber(@PathParam("letter") String letter) {
+    @RequestMapping(value = "/{letter}/number", produces = "application/json", method = RequestMethod.GET)
+    @ResponseBody
+    public Name nameAsJsonWithNumber(@PathVariable("letter") String letter) {
         Name name = new Name();
         name.setName(nameService.alliterateOn(letter, true));
         return name;
     }
 
-    @GET
-    @Path("/{letter}/number")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String nameAsTextWithNumber(@PathParam("letter") String letter) {
+    @RequestMapping(value = "/{letter}/number", produces = "text/plain", method = RequestMethod.GET)
+    @ResponseBody
+    public String nameAsTextWithNumber(@PathVariable("letter") String letter) {
         return nameService.alliterateOn(letter, true);
     }
 
-    @GET
-    @Path("/{letter}/number")
-    @Produces(MediaType.TEXT_HTML)
-    public Viewable nameAsHtmlWithNumber(@PathParam("letter") String letter) {
+    @RequestMapping(value = "/{letter}/number", produces = "text/html", method = RequestMethod.GET)
+    public String nameAsHtmlWithNumber(@PathVariable("letter") String letter, Model model) {
         String name = nameService.alliterateOn(letter, true);
-        Map model = new HashMap<>();
-        model.put("name", name);
-        return new Viewable("/name.ftl", model);
+        model.addAttribute("name", name);
+        return "name";
     }
 
 }

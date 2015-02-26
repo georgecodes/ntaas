@@ -1,44 +1,35 @@
 package com.elevenware.ntaas.resources;
 
-import com.elevenware.ntaas.model.Name;
 import com.elevenware.ntaas.model.Status;
-import org.glassfish.jersey.server.mvc.Viewable;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import java.util.HashMap;
-import java.util.Map;
-
-@Path("/status")
+@RequestMapping(value = "/status")
+@Controller
 public class StatusResource {
 
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
+    @RequestMapping(produces = "application/xml", method = RequestMethod.GET)
+    @ResponseBody
     public Status xmlStatus() {
         return new Status();
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(produces = "application/json", method = RequestMethod.GET)
+    @ResponseBody
     public Status jsonStatus() {
         return new Status();
     }
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String nameAsText(@PathParam("letter") String letter) {
-        return new Status().toString();
-    }
 
-    @GET
-    @Produces(MediaType.TEXT_HTML)
-    public Viewable statusPage() {
-        Map model = new HashMap<>();
-        model.put("status", new Status());
-        return new Viewable("/status.ftl", model);
+    @RequestMapping(produces = "text/html", method = RequestMethod.GET)
+    @ResponseBody
+    public String statusPage(Model model) {
+        model.addAttribute("status", new Status());
+        return "status";
     }
 
 }

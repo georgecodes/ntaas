@@ -3,88 +3,78 @@ package com.elevenware.ntaas.resources;
 import com.elevenware.ntaas.model.Name;
 import com.elevenware.nyaaas.NameService;
 import com.elevenware.nyaaas.SimpleNameService;
-import org.glassfish.jersey.server.mvc.Viewable;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
 import java.util.Map;
 
-@Path("/name")
+@RequestMapping(value = "/name")
+@Controller
 public class NameResource {
 
     private NameService nameService = new SimpleNameService();
 
-    @GET
-    @Path("/")
-    @Produces(MediaType.APPLICATION_XML)
+    @RequestMapping(produces = "application/xml", method = RequestMethod.GET)
+    @ResponseBody
     public Name nameAsXml() {
         Name name = new Name();
         name.setName(nameService.getAdjectiveNounPair());
         return name;
     }
 
-    @GET
-    @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(produces = "application/json", method = RequestMethod.GET)
+    @ResponseBody
     public Name nameAsJson() {
         Name name = new Name();
         name.setName(nameService.getAdjectiveNounPair());
         return name;
     }
 
-    @GET
-    @Path("/")
-    @Produces(MediaType.TEXT_PLAIN)
+    @RequestMapping(produces = "text/plain", method = RequestMethod.GET)
+    @ResponseBody
     public String nameAsText() {
         return nameService.getAdjectiveNounPair();
     }
 
-    @GET
-    @Path("/")
-    @Produces(MediaType.TEXT_HTML)
-    public Viewable nameAsHtml() {
+    @RequestMapping(produces = "text/html", method = RequestMethod.GET)
+    public String nameAsHtml(Model model) {
          String name = nameService.getAdjectiveNounPair();
-         Map model = new HashMap<>();
-         model.put("name", name);
-         return new Viewable("/name.ftl", model);
+         model.addAttribute("name", name);
+        return "name";
     }
 
-    @GET
-    @Path("/number")
-    @Produces(MediaType.APPLICATION_XML)
+    @RequestMapping(value = "/number", produces = "application/xml", method = RequestMethod.GET)
+    @ResponseBody
     public Name nameAsXmlNumber() {
         Name name = new Name();
         name.setName(nameService.getAdjectiveNounPair(true));
         return name;
     }
 
-    @GET
-    @Path("/number")
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/number", produces = "application/json", method = RequestMethod.GET)
+    @ResponseBody
     public Name nameAsJsonNumber() {
         Name name = new Name();
         name.setName(nameService.getAdjectiveNounPair(true));
         return name;
     }
 
-    @GET
-    @Path("/number")
-    @Produces(MediaType.TEXT_PLAIN)
+    @RequestMapping(value = "/number", produces = "text/plain", method = RequestMethod.GET)
+    @ResponseBody
     public String nameAsTextNumber() {
         return nameService.getAdjectiveNounPair(true);
     }
 
-    @GET
-    @Path("/number")
-    @Produces(MediaType.TEXT_HTML)
-    public Viewable nameNumberAsHtml() {
+    @RequestMapping(value = "/number", produces = "text/html", method = RequestMethod.GET)
+    public String nameNumberAsHtml(Model model) {
         String name = nameService.getAdjectiveNounPair(true);
-        Map model = new HashMap<>();
-        model.put("name", name);
-        return new Viewable("/name.ftl", model);
+        model.addAttribute("name", name);
+        return "name";
     }
 
 }
