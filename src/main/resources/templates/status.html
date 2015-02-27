@@ -3,10 +3,10 @@
 <head>
     <title>NTAAS - Naming things as a service</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
     <link type="text/plain" rel="author" href="http://ntaas.com/humans.txt"/>
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"/>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -42,7 +42,7 @@
     <div class="">
         <div class="row center-block">
             <ul>
-                <li>Version: ${status.version}</li>
+                <li>Version <span th:text="${status.version}"></span></li>
             </ul>
         </div>
     </div>
@@ -54,6 +54,7 @@
                         href="https://twitter.com/intent/user?screen_name=namingthingsapp">follow</a></span>
         </div>
     </footer>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

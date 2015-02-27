@@ -26,7 +26,6 @@ public class StatusController {
 
 
     @RequestMapping(produces = "text/html", method = RequestMethod.GET)
-    @ResponseBody
     public String statusPage(Model model) {
         model.addAttribute("status", new Status());
         return "status";
