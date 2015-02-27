@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Status {
 
-    private String version = "0.0.1";
+    private String version = "0.2.0";
 
     @XmlElement
     public String getVersion() {
