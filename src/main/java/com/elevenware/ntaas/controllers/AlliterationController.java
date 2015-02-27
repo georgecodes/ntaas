@@ -1,4 +1,4 @@
-package com.elevenware.ntaas.resources;
+package com.elevenware.ntaas.controllers;
 
 import com.elevenware.ntaas.model.Name;
 import com.elevenware.nyaaas.NameService;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 @RequestMapping(value = "/alliteration")
 @Controller
-public class AlliterationResource {
+public class AlliterationController {
 
     private NameService nameService = new SimpleNameService();
 

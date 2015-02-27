@@ -1,34 +1,33 @@
 package com.elevenware.ntaas;
 
-import org.glassfish.jersey.server.mvc.freemarker.FreemarkerMvcFeature;
-import org.glassfish.jersey.test.JerseyTest;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
+import com.elevenware.ntaas.controllers.FrontPageController;
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import static org.junit.Assert.*;
+public class ViewTests {
 
-public class ViewTests extends AbstractNtaasApplicationTests {
-
+    private MockMvc mockMvc;
+    
     @Test
-    public void frontPageExists() {
-
-        Document document = browseTo("");
-
-        assertNotNull(document);
-
-        Element intro = document.select("div.content p").first();
-        assertEquals(intro.text(), "Inspired by Heroku's naming convention, this web service will generate random names for your applications.");
+    public void frontPageExists() throws Exception {
+        
+        mockMvc.perform(get("/")
+        .accept(MediaType.TEXT_HTML))
+                .andExpect(status().isOk())
+                .andExpect(view().name("index.html"));
 
     }
 
-    private Document browseTo(String path) {
-        String response = target(path).request().accept(MediaType.TEXT_HTML).get(String.class);
-        return Jsoup.parse(response);
+    @Before
+    public void setup() {
+        this.mockMvc = MockMvcBuilders.standaloneSetup(new FrontPageController()).build();
     }
 
 

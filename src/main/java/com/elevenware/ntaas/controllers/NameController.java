@@ -1,4 +1,4 @@
-package com.elevenware.ntaas.resources;
+package com.elevenware.ntaas.controllers;
 
 import com.elevenware.ntaas.model.Name;
 import com.elevenware.nyaaas.NameService;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 @RequestMapping(value = "/name")
 @Controller
-public class NameResource {
+public class NameController {
 
     private NameService nameService = new SimpleNameService();
 

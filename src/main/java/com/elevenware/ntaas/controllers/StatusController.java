@@ -1,4 +1,4 @@
-package com.elevenware.ntaas.resources;
+package com.elevenware.ntaas.controllers;
 
 import com.elevenware.ntaas.model.Status;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RequestMapping(value = "/status")
 @Controller
-public class StatusResource {
+public class StatusController {
 
     @RequestMapping(produces = "application/xml", method = RequestMethod.GET)
     @ResponseBody
